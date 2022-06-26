@@ -20,4 +20,31 @@ $(document).ready(function () {
       $(".navbar").removeClass("navmenus");
     }
   });
+
+  // End nav
+
+  // End Header
+
+  // Start Properties
+
+  $(".propertylists").click(function () {
+    $(this).addClass("activeitems").siblings().removeClass("activeitems");
+
+    // for filter
+
+    let getattvalue = $(this).attr("data-filter");
+    console.log(getattvalue);
+
+    if (getattvalue === "all") {
+      $(".filters").show("slide", 500);
+    } else {
+      $(".filters")
+        .not("." + getattvalue)
+        .hide("slide", 500);
+
+      $(".filters")
+        .filter("." + getattvalue)
+        .show("slide", 500);
+    }
+  });
 });
